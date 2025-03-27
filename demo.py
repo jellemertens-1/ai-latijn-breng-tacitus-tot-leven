@@ -36,7 +36,7 @@ def load_checkpoints(config_path, checkpoint_path, cpu=False):
                              **config['model_params']['common_params'])
     if not cpu:
         kp_detector.cuda()
-
+    print("Initializing with weights only")
     if cpu:
         checkpoint = torch.load(checkpoint_path, map_location=torch.device('cpu'), weights_only=True)
     else:
